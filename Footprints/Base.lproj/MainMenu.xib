@@ -694,7 +694,7 @@
                 <outlet property="contentViewController" destination="UZm-Ep-m0w" id="MSJ-KF-piF"/>
             </connections>
         </popover>
-        <customView id="AM0-Io-QJG">
+        <customView id="AM0-Io-QJG" userLabel="Popover View">
             <rect key="frame" x="0.0" y="0.0" width="272" height="158"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -776,7 +776,7 @@
                 <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKw-2T-X3K">
                     <rect key="frame" x="188" y="14" width="64" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" title="Quit" bezelStyle="roundedRect" image="5FCD874B-8E44-440E-B7AB-3BC001753CAF" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" borderStyle="border" focusRingType="none" inset="2" id="1Iv-pt-0Yt">
+                    <buttonCell key="cell" type="roundRect" title="Quit" bezelStyle="roundedRect" image="1B680001-4A53-4D09-B459-B4FC0ACFD154" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" borderStyle="border" focusRingType="none" inset="2" id="1Iv-pt-0Yt">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                     </buttonCell>
@@ -789,7 +789,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="5FCD874B-8E44-440E-B7AB-3BC001753CAF" width="1" height="1">
+        <image name="1B680001-4A53-4D09-B459-B4FC0ACFD154" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

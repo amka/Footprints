@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import SwiftKVC
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -54,7 +53,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             eventMonitor?.stop()
         }
     }
-
 
     func togglePopover(_ sender: AnyObject?) {
         if popover.isShown {

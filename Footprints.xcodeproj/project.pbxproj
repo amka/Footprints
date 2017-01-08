@@ -12,7 +12,6 @@
 		2A8E41091E1B07C200025B99 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E41071E1B07C200025B99 /* MainMenu.xib */; };
 		2A8E41111E1DE4B700025B99 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8E41101E1DE4B700025B99 /* EventMonitor.swift */; };
 		2AA41FE81E22506A00458A24 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA41FE71E22506A00458A24 /* Counter.swift */; };
-		C6691E4E2BBA4E7AD97398BB /* Pods_Footprints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B1DCB04DFC26B6F52A6728 /* Pods_Footprints.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +22,6 @@
 		2A8E410A1E1B07C200025B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A8E41101E1DE4B700025B99 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		2AA41FE71E22506A00458A24 /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		A6B1DCB04DFC26B6F52A6728 /* Pods_Footprints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Footprints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B11D97FA3E1C21887A7B8A49 /* Pods-Footprints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Footprints.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Footprints/Pods-Footprints.debug.xcconfig"; sourceTree = "<group>"; };
-		E4E7A4610C8F2B970CA0DC2D /* Pods-Footprints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Footprints.release.xcconfig"; path = "Pods/Target Support Files/Pods-Footprints/Pods-Footprints.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +29,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6691E4E2BBA4E7AD97398BB /* Pods_Footprints.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,8 +40,6 @@
 			children = (
 				2A8E41021E1B07C200025B99 /* Footprints */,
 				2A8E41011E1B07C100025B99 /* Products */,
-				AB1816B1FEC1A4F1AD54706B /* Pods */,
-				E55B7C5BC9C0EFA359ED59AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,23 +64,6 @@
 			path = Footprints;
 			sourceTree = "<group>";
 		};
-		AB1816B1FEC1A4F1AD54706B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B11D97FA3E1C21887A7B8A49 /* Pods-Footprints.debug.xcconfig */,
-				E4E7A4610C8F2B970CA0DC2D /* Pods-Footprints.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		E55B7C5BC9C0EFA359ED59AD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A6B1DCB04DFC26B6F52A6728 /* Pods_Footprints.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,12 +71,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A8E410D1E1B07C200025B99 /* Build configuration list for PBXNativeTarget "Footprints" */;
 			buildPhases = (
-				7F8EA9918D361F8B6398F723 /* [CP] Check Pods Manifest.lock */,
 				2A8E40FC1E1B07C100025B99 /* Sources */,
 				2A8E40FD1E1B07C100025B99 /* Frameworks */,
 				2A8E40FE1E1B07C100025B99 /* Resources */,
-				21ED9738E8569A241DD33009 /* [CP] Embed Pods Frameworks */,
-				C19B63DBE29AF75D11B6C3C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,54 +131,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		21ED9738E8569A241DD33009 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Footprints/Pods-Footprints-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F8EA9918D361F8B6398F723 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C19B63DBE29AF75D11B6C3C8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Footprints/Pods-Footprints-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2A8E40FC1E1B07C100025B99 /* Sources */ = {
@@ -324,7 +249,6 @@
 		};
 		2A8E410E1E1B07C200025B99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B11D97FA3E1C21887A7B8A49 /* Pods-Footprints.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -340,7 +264,6 @@
 		};
 		2A8E410F1E1B07C200025B99 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4E7A4610C8F2B970CA0DC2D /* Pods-Footprints.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";

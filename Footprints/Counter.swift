@@ -7,13 +7,12 @@
 //
 
 import Cocoa
-import SwiftKVC
 
-struct MouseClicks : Value {
+struct MouseClicks {
     var left = 0, right = 0
 }
 
-class Counter : Object {
+class Counter {
     
     var wRatio = Double()
     var hRatio = Double()
@@ -54,7 +53,6 @@ class Counter : Object {
     }
     
     init() {
-//        super.init()
         getScreenDimensions()
     }
     
