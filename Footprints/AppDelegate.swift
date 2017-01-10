@@ -19,8 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.system().statusItem(withLength: -2)
     let popover = NSPopover()
-    var popoverMonitor: EventMonitor?
-    var eventMonitor: EventMonitor?
+    var popoverMonitor: GlobalMonitor?
+    var globalMonitor: GlobalMonitor?
+    var localMonitor: LocalMonitor?
     
     var counter = Counter()
     
@@ -28,29 +29,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Insert code here to initialize your application
         if let button = statusItem.button {
-            button.title = "👣"
+            button.image = NSImage(named: "MenuBar")
+            button.alternateImage = NSImage(named: "MenuBarAlt")
             button.action = #selector(AppDelegate.togglePopover(_:))
         }
         
         popover.contentViewController = viewController
         
-        popoverMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) {event in
+        popoverMonitor = GlobalMonitor(mask: [.leftMouseDown, .rightMouseDown]) {event in
             if self.popover.isShown {
                 self.closePopover(event)
             }
         }
         
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .keyDown, .mouseMoved, .flagsChanged]) {event in
+        globalMonitor = GlobalMonitor(mask: [.leftMouseDown, .rightMouseDown, .keyDown, .mouseMoved, .flagsChanged]) {event in
             self.countEvents(event)
         }
-        eventMonitor?.start()
+        globalMonitor?.start()
 
+        localMonitor = LocalMonitor(mask: [.leftMouseDown, .rightMouseDown, .keyDown, .mouseMoved, .flagsChanged]) {event in
+            return self.countLocalEvents(event)
+        }
+        localMonitor?.start()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-        if (eventMonitor != nil) {
-            eventMonitor?.stop()
+        if (globalMonitor != nil) {
+            globalMonitor?.stop()
+        }
+        
+        if (popoverMonitor != nil) {
+            popoverMonitor?.stop()
+        }
+        
+        if (localMonitor != nil) {
+            localMonitor?.stop()
         }
     }
 
@@ -77,26 +91,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func countEvents(_ sender: AnyObject?) {
         if (sender != nil) {
             let event = sender as! NSEvent
-            switch event.type {
-            case NSEventType.leftMouseDown:
-                counter.addLeftClick(1)
-                leftClicksField.intValue = Int32(counter.mouseClicks.left)
-            case NSEventType.rightMouseDown:
-                counter.addRightClick(1)
-                rightClicksField.intValue = Int32(counter.mouseClicks.right)
-            case NSEventType.keyDown:
-                counter.addKeysPress(1.0)
-                keysPressedField.intValue = Int32(counter.keysPressed)
-            case NSEventType.flagsChanged:
-                counter.addKeysPress(0.5)
-                keysPressedField.intValue = Int32(counter.keysPressed)
-            case NSEventType.mouseMoved:
-                counter.travelMouse(to: event.locationInWindow)
-                distanceField.stringValue = String(format: "%.1f m", counter.mouseDistance)
-                
-            default: break
-            }
+            counter.countEvent(event)
+            keysPressedField.intValue = Int32(counter.keysPressed)
+            leftClicksField.intValue = Int32(counter.mouseClicks.left)
+            rightClicksField.intValue = Int32(counter.mouseClicks.right)
+            distanceField.stringValue = String(format: "%.1f m", counter.mouseDistance)
         }
+    }
+    
+    func countLocalEvents(_ sender: AnyObject?) -> NSEvent? {
+        if (sender != nil) {
+            let event = sender as! NSEvent
+            counter.countEvent(event)
+            keysPressedField.intValue = Int32(counter.keysPressed)
+            leftClicksField.intValue = Int32(counter.mouseClicks.left)
+            rightClicksField.intValue = Int32(counter.mouseClicks.right)
+            distanceField.stringValue = String(format: "%.1f m", counter.mouseDistance)
+        }
+        return sender as? NSEvent
     }
 }
 

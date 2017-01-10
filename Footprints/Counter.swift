@@ -78,4 +78,25 @@ class Counter {
         }
         prevPoint = point
     }
+    
+    func countEvent(_ event: NSEvent) {
+        switch event.type {
+        case NSEventType.leftMouseDown:
+            addLeftClick(1)
+            
+        case NSEventType.rightMouseDown:
+            addRightClick(1)
+            
+        case NSEventType.keyDown:
+            addKeysPress(1.0)
+            
+        case NSEventType.flagsChanged:
+            addKeysPress(0.5)
+            
+        case NSEventType.mouseMoved:
+            travelMouse(to: event.locationInWindow)
+            
+        default: break
+        }
+    }
 }
