@@ -99,4 +99,19 @@ class Counter {
         default: break
         }
     }
+    
+    func countEvents(_ sender: AnyObject?) {
+        if (sender != nil) {
+            let event = sender as! NSEvent
+            countEvent(event)
+        }
+    }
+    
+//    func countEvents(_ sender: AnyObject?) -> NSEvent? {
+//        if (sender != nil) {
+//            let event = sender as! NSEvent
+//            countEvent(event)
+//        }
+//        return sender as? NSEvent
+//    }
 }

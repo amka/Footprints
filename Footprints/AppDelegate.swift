@@ -43,12 +43,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         globalMonitor = GlobalMonitor(mask: [.leftMouseDown, .rightMouseDown, .keyDown, .mouseMoved, .flagsChanged]) {event in
-            self.countEvents(event)
+            self.counter.countEvents(event)
+            self.updateCounterFields(event)
         }
         globalMonitor?.start()
 
         localMonitor = LocalMonitor(mask: [.leftMouseDown, .rightMouseDown, .keyDown, .mouseMoved, .flagsChanged]) {event in
-            return self.countLocalEvents(event)
+            self.counter.countEvents(event)
+            self.updateCounterFields(event)
+            return event
         }
         localMonitor?.start()
     }
@@ -88,27 +91,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popoverMonitor?.stop()
     }
     
-    func countEvents(_ sender: AnyObject?) {
-        if (sender != nil) {
-            let event = sender as! NSEvent
-            counter.countEvent(event)
-            keysPressedField.intValue = Int32(counter.keysPressed)
-            leftClicksField.intValue = Int32(counter.mouseClicks.left)
-            rightClicksField.intValue = Int32(counter.mouseClicks.right)
-            distanceField.stringValue = String(format: "%.1f m", counter.mouseDistance)
-        }
-    }
-    
-    func countLocalEvents(_ sender: AnyObject?) -> NSEvent? {
-        if (sender != nil) {
-            let event = sender as! NSEvent
-            counter.countEvent(event)
-            keysPressedField.intValue = Int32(counter.keysPressed)
-            leftClicksField.intValue = Int32(counter.mouseClicks.left)
-            rightClicksField.intValue = Int32(counter.mouseClicks.right)
-            distanceField.stringValue = String(format: "%.1f m", counter.mouseDistance)
-        }
-        return sender as? NSEvent
+    func updateCounterFields(_ sender: AnyObject?) {
+        keysPressedField.intValue = Int32(counter.keysPressed)
+        leftClicksField.intValue = Int32(counter.mouseClicks.left)
+        rightClicksField.intValue = Int32(counter.mouseClicks.right)
+        distanceField.stringValue = String(format: "%.1f m", counter.mouseDistance)
     }
 }
 
